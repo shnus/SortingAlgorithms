@@ -3,7 +3,7 @@ package ru.mail.polis.sort;
 import ru.mail.polis.structures.IntKeyObject;
 
 public class CountingSort {
-    public <T extends IntKeyObject> void sort(T[] a) {
+    public <T extends IntKeyObject> T[] sort(T[] a) {
         int max = findMax(a);
         int[] count = new int[max + 1];
         for (T x : a) count[x.getKey()]++;
@@ -18,6 +18,8 @@ public class CountingSort {
         }
 
         System.arraycopy(res, 0, a, 0, a.length);
+
+        return a;
     }
 
     private <T extends IntKeyObject> int findMax(T[] a) {

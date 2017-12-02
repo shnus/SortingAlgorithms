@@ -2,10 +2,11 @@ package ru.mail.polis.sort;
 
 public class InsertionSort {
 
-    public <T extends Comparable<T>> void sort(T[] a) {
+    static public <T extends Comparable<T>> T[] sort(T[] a) {
         sort(a, 0, a.length-1);
+        return a;
     }
-    static public <T extends Comparable<T>> void sort(T[] a, int left, int right) {
+    static public <T extends Comparable<T>> T[] sort(T[] a, int left, int right) {
         for (int i = left+1; i <= right; i++) {
             T temp = a[i];
             int j;
@@ -14,5 +15,6 @@ public class InsertionSort {
             }
             a[j + 1] = temp;
         }
+        return a;
     }
 }

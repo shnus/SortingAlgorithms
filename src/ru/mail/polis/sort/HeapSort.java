@@ -1,7 +1,7 @@
 package ru.mail.polis.sort;
 
 public class HeapSort {
-    public <T extends Comparable<T>> void sort(T[] heap) {
+    public <T extends Comparable<T>> T[] sort(T[] heap) {
         int heapSize = heap.length;
         build(heap);
         for(int i = 0; i<heap.length-1; i++){
@@ -9,6 +9,8 @@ public class HeapSort {
             heapSize--;
             shiftDown(heap, heapSize, 0);
         }
+
+        return heap;
 
     }
 

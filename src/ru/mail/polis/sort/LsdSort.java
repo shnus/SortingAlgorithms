@@ -3,7 +3,7 @@ package ru.mail.polis.sort;
 import ru.mail.polis.structures.Numerical;
 
 public class LsdSort {
-    public <T extends Numerical> void sort(T[] a) {
+    public <T extends Numerical> T[] sort(T[] a) {
         final int r = 10;
         int d = 20;
         for (int k = d - 1; k >= 0; k--) {
@@ -19,6 +19,7 @@ public class LsdSort {
             }
             System.arraycopy(res, 0, a, 0, a.length);
         }
+        return a;
     }
 
     private <T extends Numerical> int digit(T x, int k) {

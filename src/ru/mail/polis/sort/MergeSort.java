@@ -2,7 +2,7 @@ package ru.mail.polis.sort;
 
 public class MergeSort {
 
-    public <T extends Comparable<T>> void sort(T[] a) {
+    public <T extends Comparable<T>> T[] sort(T[] a) {
         int n = a.length;
         T[] t = (T[]) new Comparable[n];
         for (int len = 1; len < n; len *= 2) {
@@ -12,6 +12,8 @@ public class MergeSort {
                 merge(a, t, left, mid, right);
             }
         }
+
+        return a;
     }
 
 

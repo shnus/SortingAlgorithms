@@ -5,9 +5,12 @@ import org.junit.Test;
 import ru.mail.polis.sort.*;
 import ru.mail.polis.structures.IntKeyObject;
 import ru.mail.polis.structures.IntKeyStringValueObject;
+import ru.mail.polis.structures.Numerical;
 import ru.mail.polis.structures.SimpleInteger;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Nechaev Mikhail
@@ -113,5 +116,21 @@ public class SimpleTest {
                 new Integer(56364),
                 new Integer(93464)
         }, integers);
+    }
+
+    @Test
+    public void testLSD() throws IOException {
+        LsdSort lsdSort = new LsdSort();
+        Numerical[] array = new Numerical[]{new SimpleInteger(10), new SimpleInteger(20), new SimpleInteger(30)};
+        lsdSort.sort(array);
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testCountingSort() throws IOException {
+        CountingSort countingSort = new CountingSort();
+        List<IntKeyObject<String>> list = Arrays.asList(new IntKeyStringValueObject(1, "abc"), new IntKeyStringValueObject(2, "bcd"));
+        IntKeyObject<String>[] array = (IntKeyObject<String>[]) list.toArray();
+        countingSort.sort(array);
     }
 }

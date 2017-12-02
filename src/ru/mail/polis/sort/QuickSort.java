@@ -5,9 +5,10 @@ import java.util.Random;
 public class QuickSort {
 
 
-    public <T extends Comparable<T>> void sort(T[] a) {
+    public <T extends Comparable<T>> T[] sort(T[] a) {
         shuffleArray(a);
         sort(a, 0, a.length - 1);
+        return a;
     }
 
     private <T extends Comparable<T>> void sort(T[] a, int left, int right) {
