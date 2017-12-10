@@ -133,4 +133,40 @@ public class SimpleTest {
         IntKeyObject<String>[] array = (IntKeyObject<String>[]) list.toArray();
         countingSort.sort(array);
     }
+
+    @Test
+    public void testCountingSortInteger01() {
+        RandomString rs = new RandomString(20);
+        for(int i=0; i<100;i++){
+            String s = rs.nextSimpleString();
+            System.out.println(s);
+        }
+        LsdSort lsdSort = new LsdSort();
+        SimpleInteger[] array = new SimpleInteger[]{
+                new SimpleInteger(1),
+                new SimpleInteger(3),
+                new SimpleInteger(3),
+                new SimpleInteger(5),
+                new SimpleInteger(2),
+                new SimpleInteger(2),
+                new SimpleInteger(2)
+        };
+        lsdSort.sort(array);
+
+        Integer[] integers = new Integer[array.length];
+        for(int i = 0; i<array.length; i++){
+            integers[i] = array[i].getInteger();
+        }
+
+        Assert.assertArrayEquals(new Integer[]{
+                new Integer(1),
+                new Integer(2),
+                new Integer(2),
+                new Integer(2),
+                new Integer(3),
+                new Integer(3),
+                new Integer(5)
+        }, integers);
+    }
+
 }
