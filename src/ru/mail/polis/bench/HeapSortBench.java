@@ -7,7 +7,6 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import ru.mail.polis.sort.HeapSort;
-import ru.mail.polis.sort.QuickSort;
 import ru.mail.polis.sort.SortUtils;
 
 import java.util.Arrays;

@@ -6,8 +6,6 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
-import ru.mail.polis.sort.QuickSort;
-import ru.mail.polis.sort.QuickSortOptim;
 import ru.mail.polis.sort.QuickSortWithInsertions;
 import ru.mail.polis.sort.SortUtils;
 
@@ -26,7 +24,7 @@ public class QuickSortWithInsertionsBench {
 
     @Setup(value = Level.Trial)
     public void setUpTrial() {
-        int n = 10;
+        int n = 1000;
         data = new Integer[10][n];
 
         for (int i = 0; i<10; i++) {

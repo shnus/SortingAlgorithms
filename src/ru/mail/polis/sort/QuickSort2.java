@@ -2,27 +2,24 @@ package ru.mail.polis.sort;
 
 import java.util.Random;
 
-public class QuickSortWithInsertions {
+public class QuickSort2 {
+
+
     public <T extends Comparable<T>> T[] sort(T[] a) {
         shuffleArray(a);
-    //    sort(a, 0, a.length - 1);
+        sort(a, 0, a.length - 1);
         return a;
     }
 
     private <T extends Comparable<T>> void sort(T[] a, int left, int right) {
         if (left >= right) return;
         int idx = partition(a, left, right);
-        if(right-left<10){
-            InsertionSort.sort(a, left, idx);
-            InsertionSort.sort(a, idx+1, right);
-        } else {
-            sort(a, left, idx);
-            sort(a, idx + 1, right);
-        }
+        sort(a, left, idx);
+        sort(a, idx + 1, right);
     }
 
     private <T extends Comparable<T>> int partition(T[] a, int left, int right) {
-        T p = a[left + (right - left + 1) / 2];
+        T p = a[(int) ((Math.random() * (right - left) + 1) + left)];
         int i = left, j = right;
         while (i <= j) {
             while (a[i].compareTo(p) < 0) i++;
@@ -45,4 +42,5 @@ public class QuickSortWithInsertions {
             swap(a, i, index);
         }
     }
+
 }

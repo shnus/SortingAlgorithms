@@ -6,7 +6,8 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
-import ru.mail.polis.sort.InsertionSort;
+import ru.mail.polis.sort.QuickSortWithInsertions;
+import ru.mail.polis.sort.QuickSortWithInsertions2;
 import ru.mail.polis.sort.SortUtils;
 
 import java.util.Arrays;
@@ -15,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-public class InsertionSortBench {
+public class QuickSortWithInsertionsBench2 {
 
     private Integer[] a;
     Integer [][] data;
@@ -24,7 +25,7 @@ public class InsertionSortBench {
 
     @Setup(value = Level.Trial)
     public void setUpTrial() {
-        int n = 10;
+        int n = 10000;
         data = new Integer[10][n];
 
         for (int i = 0; i<10; i++) {
@@ -40,12 +41,12 @@ public class InsertionSortBench {
     }
     @Benchmark
     public void measureQuickSort(Blackhole bh) {
-        bh.consume(InsertionSort.sort(curr));
+        bh.consume(new QuickSortWithInsertions().sort(curr));
     }
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
-                .include(InsertionSortBench.class.getSimpleName())
+                .include(QuickSortWithInsertionsBench2.class.getSimpleName())
                 .warmupIterations(5)
                 .measurementIterations(5)
                 .forks(1)

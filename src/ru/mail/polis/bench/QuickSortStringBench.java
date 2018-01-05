@@ -8,7 +8,6 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import ru.mail.polis.sort.QuickSort;
 import ru.mail.polis.sort.RandomString;
-import ru.mail.polis.sort.SortUtils;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
